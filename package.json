@@ -1,0 +1,61 @@
+{
+	"name": "tba-trpc",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "TRPC router for The Blue Alliance API",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/n3s-online/tba-trpc.git"
+	},
+	"homepage": "https://github.com/n3s-online/tba-trpc#readme",
+	"bugs": {
+		"url": "https://github.com/n3s-online/tba-trpc/issues"
+	},
+	"author": "n3s.online <n3s.online@gmail.com>",
+	"license": "MIT",
+	"main": "dist/index.cjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"default": "./dist/index.cjs"
+		}
+	},
+	"scripts": {
+		"build": "pnpm tsup",
+		"prepublishOnly": "pnpm build"
+	},
+	"files": [
+		"dist"
+	],
+	"peerDependencies": {
+		"@trpc/server": "^9"
+	},
+	"dependencies": {
+		"@trpc/server": "^9",
+		"tba-api-v3client-ts": "^3.10.0"
+	},
+	"devDependencies": {
+		"@trpc/client": "9.27.2",
+		"@trpc/server": "9.27.2",
+		"@types/node": "18.7.13",
+		"tsup": "6.2.3",
+		"typescript": "4.8.2",
+		"undici": "5.10.0",
+		"zod": "3.18.0"
+	},
+	"tsup": {
+		"entry": [
+			"index.ts"
+		],
+		"format": [
+			"esm",
+			"cjs"
+		],
+		"dts": {
+			"resolve": true
+		},
+		"splitting": true,
+		"clean": true
+	}
+}
